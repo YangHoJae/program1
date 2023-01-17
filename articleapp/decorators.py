@@ -4,9 +4,9 @@ from articleapp.models import Article
 
 
 def article_ownership_required(func):
-    def decorated(requset, *args, **kwargs):
+    def decorated(request, *args, **kwargs):
         article = Article.objects.get(pk=kwargs['pk'])
-        if not article.writer == requset.user:
+        if not article.writer == request.user:
             return HttpResponseForbidden()
-        return func(requset, *args, **kwargs)
+        return func(request, *args, **kwargs)
     return decorated
