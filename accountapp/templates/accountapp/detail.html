@@ -11,8 +11,11 @@
               <h2 style="font-family : 'NanumSquareB'">
                   {{ target_user.profile.nickname }}
                     {% if target_user == user %}
-                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                          edit
+                    <a class="material-icons"
+                       style="box-shadow: 0 0 4px #000; border-radius: 10rem; padding: .4rem;
+                              text-decoration: none;
+                       href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                        edit
                     </a>
                   {% endif %}
               </h2>
@@ -33,15 +36,17 @@
 
 
               {% if target_user == user %}
-              <a href="{% url 'accountapp:update' pk=user.pk %}">
-                  <p>
-                      Change Info
-                  </p>
+              <a class="material-icons"
+                 style="box-shadow: 0 0 4px #000; border-radius: 10rem; padding: .4rem;
+                       text-decoration: none;"
+                 href="{% url 'accountapp:update' pk=user.pk %}">
+                settings
               </a>
-              <a href="{% url 'accountapp:delete' pk=user.pk %}">
-                  <p>
-                      Quit
-                  </p>
+              <a class="material-icons"
+                 style="box-shadow: 0 0 4px #dc3545; border-radius: 10rem; padding: .4rem;
+                       text-decoration: none; color: #f8031b"
+                 href="{% url 'accountapp:delete' pk=user.pk %}">
+                cancel
               </a>
               {% endif %}
           </div>
